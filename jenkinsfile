@@ -21,7 +21,7 @@
 										      stage('continuous delivery')
 										          {
 											          input message: 'waiting for approval from dm', submitter: 'anu'
-												      sh 'scp /home/vagrant/.jenkins/workspace/dev2/webapp/target/webapp.war vagrant@10.0.0.22:/var/lib/tomcat7/webapps/prodenv.war'
+												      sh 'scp /home/vagrant/.jenkins/workspace/dev2/webapp/target/webapp.war vagrant@10.0.0.22:/var/lib/tomcat7/webapps/feature.war'
 												          }
 													  }
 													      
