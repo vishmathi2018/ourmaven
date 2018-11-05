@@ -12,7 +12,7 @@
 					    }
 					        stage('cont deployment')
 						    {
-						            sh 'scp /home/vagrant/.jenkins/workspace/dev2/webapp/target/webapp.war vagrant@10.10.10.91:/var/lib/tomcat7/webapps/master.war'
+						            sh 'scp /home/vagrant/.jenkins/workspace/dev2/webapp/target/webapp.war vagrant@10.10.10.91:/var/lib/tomcat7/webapps/master1.war'
 							      }
 							          stage('cont testing')
 								      {
