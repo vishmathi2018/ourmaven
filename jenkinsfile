@@ -1,0 +1,28 @@
+
+
+ [200~node('master')
+ {
+     stage('cont download')
+         {
+	         git 'https://github.com/selenium-saikrishna/maven1.git'
+		     }
+		             stage('cont build') 
+			         {
+				        sh 'mvn package'
+					    }
+					        stage('cont deployment')
+						    {
+						            sh 'scp /home/vagrant/.jenkins/workspace/dev2/webapp/target/webapp.war vagrant@10.10.10.91:/var/lib/tomcat7/webapps/qaenv.war'
+							      }
+							          stage('cont testing')
+								      {
+								              git 'https://github.com/selenium-saikrishna/FunctionalTesting.git'
+									          }
+										      stage('continuous delivery')
+										          {
+											          input message: 'waiting for approval from dm', submitter: 'anu'
+												      sh 'scp /home/vagrant/.jenkins/workspace/dev2/webapp/target/webapp.war vagrant@10.0.0.22:/var/lib/tomcat7/webapps/prodenv.war'
+												          }
+													  }
+													      
+
